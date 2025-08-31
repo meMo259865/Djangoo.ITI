@@ -1,0 +1,29 @@
+{% extends 'index2.html' %}
+{% block title %}tablecontent{% endblock %}
+{%block content%}
+
+    <table border="1" width="100%">
+     <a href="{% url 'inserttrack' %}">insert new track !</a>
+        <tr>
+            <td>Id</td>
+            <td>First track</td>
+            <td>First track image</td>
+            <td>Second track</td>
+            <td>Second track image</td>
+            <td>Status</td>
+            <td>Actions</td>
+        </tr>
+        {% for t in tracks %}
+        <tr>
+            <td>{{t.id}}</td>
+            <td>{{t.first_track_name}}</td>
+            <td><img src="{{t.first_track_image.url }}" alt="First track img" ></td>
+            <td>{{t.second_track_name}}</td>
+            <td><img src="{{t.second_track_image.url}}" alt="second track img"></td>
+            <td>{%if t.status %}Active{%else%}Inactive{%endif%}</td>
+            <td><a href="{% url 'updatetrack' t.id %}">update</a>
+            <a href="{% url 'deletetrack' t.id %}">delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'index2.html' %}
+{% block title %}trainees data{% endblock %}
+{%block content%}
+<table border="1" width="100%">
+     <a href="{% url 'inserttrainee' %}">insert new trainee !</a>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>email</td>
+            <td>track</td>
+            <td>track image</td>
+            <td>track ID</td>
+            <td>status</td>
+            <td>Actions</td>
+        </tr>
+        {% for trainee in trainees %}
+        <tr>
+            <td>{{trainee.id}}</td>
+            <td>{{trainee.name}}</td>
+            <td>{{trainee.email}}</td>
+            <td>{{trainee.track}}</td>
+            <td><img src="{{trainee.img.url}}" alt="track img" width="200px" height="200px"></td>
+            <td>{{trainee.trackid.first_track_name}}</td>
+            <td>{%if trainee.status%}Studing{%else%}Completed{%endif%}</td>
+            <td><a href="{% url 'updatetrainee' trainee.id%}">update</a>
+            <a href="{%url 'deletetrainee' trainee.id%}">delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

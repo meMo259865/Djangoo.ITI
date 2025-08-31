@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insert track</title>
+</head>
+<body>
+    <h1>insert your track</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="track_name_1st">first track name</label>
+        <input type="text" id="track_name_1st" name="track_name_1st">
+        <br><br>
+         <label for="track_img_1st">first track image</label>
+        <input type="file" id="track_img_1st" name="track_img_1st">
+        <br><br>
+        <label for="track_name_2nd">second track name</label>
+        <input type="text" id="track_name_2nd" name="track_name_2nd">
+        <br><br>
+        <label for="track_img_2nd">second track image</label>
+        <input type="file" id="track_img_2nd" name="track_img_2nd">
+        <br><br>
+        <input type="submit">
+    </form>
+</body>
+</html>
